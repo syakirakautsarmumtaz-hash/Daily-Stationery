@@ -119,7 +119,7 @@ const PRODUCTS = [
   {
     id: 17, name: 'Gunting Serbaguna Stainless 21cm', cat: 'Perlengkapan Kantor',
     price: 25000, old: null, badge: null,
-    img: 'https://unsplash.com/id/foto/gunting-di-atas-meja-5aQDudtFEHo',
+    img: 'https://images.unsplash.com/photo-1668853060178-2d53667b7345?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     desc: 'Gunting stainless 21cm, pegangan ergonomis, tajam & ringan.',
     dt: new Date('2025-11-05')
   },
