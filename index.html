@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAILYSTATIONERY — Toko ATK Lengkap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="goHome()">DAILY<span>STATIONERY</span></div>
+  <ul class="nav-links">
+    <li><a onclick="goHome()">Beranda</a></li>
+    <li><a onclick="goProducts()">Produk</a></li>
+    <li><a onclick="scrollTo2('features')">Layanan</a></li>
+    <li><a onclick="scrollTo2('footer-sec')">Kontak</a></li>
+  </ul>
+  <div>
+    <button class="btn-cart" onclick="toggleCart()">
+      🛒 Keranjang <span class="cart-badge" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-hdr">
+    <span class="cart-title">Keranjang Belanja</span>
+    <button class="btn-close-c" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-list">
+    <div class="c-empty">
+      <div class="c-empty-icon">🛒</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem">Keranjang masih kosong</div>
+      <p style="font-size:.82rem;color:var(--muted);margin-top:.5rem">Tambahkan produk favoritmu!</p>
+    </div>
+  </div>
+  <div class="cart-foot" id="cart-foot" style="display:none">
+    <div class="c-sub"><span>Subtotal</span><span id="c-subtotal">Rp 0</span></div>
+    <div class="c-sub"><span>Ongkos kirim</span><span id="c-ship">Pilih di checkout</span></div>
+    <div class="c-total"><span>Total</span><span class="c-total-price" id="c-total">Rp 0</span></div>
+    <button class="btn-checkout" onclick="startCheckout()">Pesan Sekarang →</button>
+  </div>
+</div>
+
+<!-- ==================== HOME ==================== -->
+<div id="pg-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">✦ Toko ATK Lengkap — Bekasi</div>
+      <h1 class="hero-title">Semua Kebutuhan<br><em>ATK Kamu</em><br>Ada Di Sini</h1>
+      <p class="hero-desc">Pensil, pulpen, binder, buku tulis, tas sekolah, dan ratusan alat tulis lainnya. Harga terjangkau, kualitas terjamin, kirim ke seluruh Indonesia.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="goProducts()">Belanja Sekarang ↗</button>
+        <button class="btn-secondary" onclick="scrollTo2('features')">Lihat Layanan</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">500+</div><div class="stat-label">Produk</div></div>
+        <div><div class="stat-num">12K+</div><div class="stat-label">Pelanggan</div></div>
+        <div><div class="stat-num">4.9★</div><div class="stat-label">Rating</div></div>
+      </div>
+    </div>
+    <div class="hero-right"></div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Jelajahi <span>Kategori</span></h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterCat('Pensil')"><div class="cat-icon">✏️</div><div class="cat-name">Pensil</div><div class="cat-count">18 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Pulpen')"><div class="cat-icon">🖊️</div><div class="cat-name">Pulpen</div><div class="cat-count">32 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Buku Tulis')"><div class="cat-icon">📓</div><div class="cat-name">Buku Tulis</div><div class="cat-count">24 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Binder')"><div class="cat-icon">📋</div><div class="cat-name">Binder</div><div class="cat-count">15 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Isi Binder')"><div class="cat-icon">📄</div><div class="cat-name">Isi Binder</div><div class="cat-count">20 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Tas Sekolah')"><div class="cat-icon">🎒</div><div class="cat-name">Tas Sekolah</div><div class="cat-count">12 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Penggaris & Alat Ukur')"><div class="cat-icon">📐</div><div class="cat-name">Penggaris</div><div class="cat-count">10 produk</div></div>
+      <div class="cat-card" onclick="filterCat('Perlengkapan Kantor')"><div class="cat-icon">📌</div><div class="cat-name">Perlengkapan</div><div class="cat-count">29 produk</div></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-alt" id="features">
+    <div class="section-header">
+      <h2 class="section-title">Kenapa <span>DailyStationery?</span></h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-icon">🚚</div><div class="feat-title">Pengiriman Cepat</div><div class="feat-desc">JNE, J&T, SiCepat, Anteraja, GoSend. Estimasi 1–3 hari sampai.</div></div>
+      <div class="feat-card"><div class="feat-icon">💳</div><div class="feat-title">Bayar Mudah</div><div class="feat-desc">QRIS, e-wallet, M-Banking, Virtual Account, dan minimarket terdekat.</div></div>
+      <div class="feat-card"><div class="feat-icon">✨</div><div class="feat-title">Produk Original</div><div class="feat-desc">100% original, dikurasi langsung dari brand terpercaya.</div></div>
+      <div class="feat-card"><div class="feat-icon">↩️</div><div class="feat-title">Garansi 7 Hari</div><div class="feat-desc">Proses retur & pengembalian dana dalam 3 hari kerja.</div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer-sec">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">DAILY<span>STATIONERY</span></div>
+        <p class="foot-desc">Toko alat tulis lengkap untuk pelajar, mahasiswa, dan profesional. Semua kebutuhan ATK ada di sini.</p>
+      </div>
+      <div>
+        <div class="foot-col-title">Navigasi</div>
+        <ul class="foot-links">
+          <li><a onclick="goHome()">Beranda</a></li>
+          <li><a onclick="goProducts()">Produk</a></li>
+          <li><a>Tentang Kami</a></li>
+          <li><a>Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-title">Layanan</div>
+        <ul class="foot-links">
+          <li><a>Cara Belanja</a></li>
+          <li><a>Kebijakan Retur</a></li>
+          <li><a>Pengiriman</a></li>
+          <li><a>FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-title">Hubungi Kami</div>
+        <div class="foot-contact">📍 Jl. Kemang Raya No. 88, Jakarta Selatan</div>
+        <div class="foot-contact">📞 +62 21-7890-1234</div>
+        <div class="foot-contact">📧 hello@dailystationery.id</div>
+        <div class="foot-contact">🕐 Sen–Sab 09.00–21.00 WIB</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 DailyStationery. All rights reserved.</span>
+      <span>Made with ✦ in Jakarta</span>
+    </div>
+  </footer>
+
+</div><!-- /pg-home -->
+
+<!-- ==================== PRODUCTS ==================== -->
+<div id="pg-products" class="page" style="margin-top:70px;padding:3rem 8%;min-height:100vh">
+  <div class="section-header" style="margin-bottom:1.5rem">
+    <div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700">Semua <span style="color:var(--rust)">Produk</span></h1>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:.3rem" id="prod-count">Menampilkan semua produk</p>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="tb-group">
+      <span class="tb-label">Urutkan:</span>
+      <select class="tb-select" id="sort-sel" onchange="applyFilter()">
+        <option value="newest">Terbaru</option>
+        <option value="price-low">Harga Terendah</option>
+        <option value="price-high">Harga Tertinggi</option>
+        <option value="az">A–Z</option>
+      </select>
+    </div>
+    <div class="tb-group">
+      <span class="tb-label">Kategori:</span>
+      <select class="tb-select" id="cat-sel" onchange="applyFilter()">
+        <option value="all">Semua</option>
+        <option value="Pensil">Pensil</option>
+        <option value="Pulpen">Pulpen</option>
+        <option value="Buku Tulis">Buku Tulis</option>
+        <option value="Binder">Binder</option>
+        <option value="Isi Binder">Isi Binder</option>
+        <option value="Tas Sekolah">Tas Sekolah</option>
+        <option value="Penggaris & Alat Ukur">Penggaris &amp; Alat Ukur</option>
+        <option value="Perlengkapan Kantor">Perlengkapan Kantor</option>
+      </select>
+    </div>
+    <div class="tb-group">
+      <span class="tb-label">Harga:</span>
+      <input class="tb-price" type="number" id="p-min" placeholder="Min" min="0">
+      <span style="color:var(--muted);font-size:.8rem">—</span>
+      <input class="tb-price" type="number" id="p-max" placeholder="Max" min="0">
+    </div>
+    <button class="btn-filter" onclick="applyFilter()">Terapkan</button>
+    <button class="btn-reset-f" onclick="resetFilter()">Reset</button>
+  </div>
+
+  <div class="prod-grid" id="prod-grid"></div>
+</div><!-- /pg-products -->
+
+<!-- ==================== PAYMENT ==================== -->
+<div id="pg-payment" class="page">
+  <div class="pay-wrap">
+    <div class="pay-con">
+
+      <!-- Step indicator -->
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="step-row">
+          <div class="s-dot active" id="s1">1</div><div class="s-line" id="l1"></div>
+          <div class="s-dot" id="s2">2</div><div class="s-line" id="l2"></div>
+          <div class="s-dot" id="s3">3</div><div class="s-line" id="l3"></div>
+          <div class="s-dot" id="s4">4</div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Alamat & Pengiriman -->
+      <div id="ps1">
+        <div class="pay-card">
+          <div class="pay-title">Informasi Pengiriman</div>
+          <div class="pay-sub">Masukkan alamat pengiriman kamu</div>
+          <div class="addr-grid">
+            <div class="fg"><label class="flabel">Nama Lengkap</label><input class="finput" type="text" placeholder="Contoh: Rina Sari"></div>
+            <div class="fg"><label class="flabel">No. HP</label><input class="finput" type="text" placeholder="08xx-xxxx-xxxx"></div>
+            <div class="fg full"><label class="flabel">Alamat Lengkap</label><input class="finput" type="text" placeholder="Jl., Gang, No. Rumah, RT/RW"></div>
+            <div class="fg"><label class="flabel">Kota / Kecamatan</label><input class="finput" type="text" placeholder="Jakarta Selatan"></div>
+            <div class="fg"><label class="flabel">Kode Pos</label><input class="finput" type="text" placeholder="12730"></div>
+            <div class="fg"><label class="flabel">Provinsi</label><input class="finput" type="text" placeholder="DKI Jakarta"></div>
+            <div class="fg full"><label class="flabel">Catatan (opsional)</label><input class="finput" type="text" placeholder="Warna pagar, patokan, dll."></div>
+          </div>
+        </div>
+        <div class="pay-card">
+          <div style="font-weight:700;margin-bottom:1rem">Pilih Jasa Pengiriman</div>
+          <div class="del-grid" id="del-grid"></div>
+        </div>
+        <div class="pay-card">
+          <div style="font-weight:700;margin-bottom:1rem">Ringkasan Pesanan</div>
+          <div id="ord-items"></div>
+          <hr class="ord-div">
+          <div class="ord-total"><span>Total</span><span class="ord-total-p" id="ord-total-val"></span></div>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;padding:1rem;border-radius:12px;font-size:1rem" onclick="goStep(2)">Lanjut ke Pembayaran →</button>
+      </div>
+
+      <!-- STEP 2: Pilih metode -->
+      <div id="ps2" style="display:none">
+        <div class="pay-card">
+          <div class="pay-title">Metode Pembayaran</div>
+          <div class="pay-sub">Pilih cara pembayaran yang kamu mau</div>
+          <div class="pm-grid">
+            <div class="pm-opt" onclick="chooseMethod('qris')"><div class="pm-icon">⬛</div><div class="pm-name">QRIS</div><div class="pm-desc">Scan QR dari semua aplikasi</div></div>
+            <div class="pm-opt" onclick="chooseMethod('ewallet')"><div class="pm-icon">📱</div><div class="pm-name">E-Wallet</div><div class="pm-desc">GoPay, OVO, DANA, ShopeePay</div></div>
+            <div class="pm-opt" onclick="chooseMethod('mbanking')"><div class="pm-icon">🏦</div><div class="pm-name">M-Banking</div><div class="pm-desc">BCA, Mandiri, BNI, BRI, CIMB</div></div>
+            <div class="pm-opt" onclick="chooseMethod('va')"><div class="pm-icon">🔢</div><div class="pm-name">Virtual Account</div><div class="pm-desc">Transfer via kode VA</div></div>
+            <div class="pm-opt" onclick="chooseMethod('minimarket')"><div class="pm-icon">🏪</div><div class="pm-name">Toko Swalayan</div><div class="pm-desc">Indomaret, Alfamart, Lawson</div></div>
+          </div>
+        </div>
+        <button class="btn-secondary" style="width:100%;padding:.9rem;border-radius:12px" onclick="goStep(1)">← Kembali</button>
+      </div>
+
+      <!-- STEP 3: Pilih bank/wallet -->
+      <div id="ps3" style="display:none">
+        <div class="pay-card">
+          <div class="pay-title" id="s3-title">Pilih Bank</div>
+          <div class="pay-sub">Pilih bank atau aplikasi pembayaran</div>
+          <div class="bank-grid" id="bank-grid"></div>
+        </div>
+        <button class="btn-secondary" style="width:100%;padding:.9rem;border-radius:12px" onclick="goStep(2)">← Ganti Metode</button>
+      </div>
+
+      <!-- STEP 4: Detail transaksi -->
+      <div id="ps4" style="display:none">
+        <div class="pay-card" id="txn-card"></div>
+        <button class="btn-chg" onclick="goStep(2)">🔄 Ganti Metode Pembayaran</button>
+        <button class="btn-home" onclick="goHome()">🏠 Kembali ke Beranda</button>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /pg-payment -->
+
+<!-- ==================== SUCCESS ==================== -->
+<div id="pg-success" class="page">
+  <div class="suc-page">
+    <div class="suc-con">
+      <div class="suc-hdr">
+        <div class="suc-icon">✓</div>
+        <h2 class="suc-title">Pembayaran Berhasil!</h2>
+        <p class="suc-sub">Pesananmu sedang diproses. Terima kasih sudah belanja di DailyStationery!</p>
+      </div>
+      <button class="btn-toggle-r" onclick="toggleReceipt()">🧾 <span id="rct-btn-txt">Lihat Keterangan Lengkap</span></button>
+      <div class="receipt-card" id="rct-card">
+        <div class="rct-hdr">
+          <div class="rct-store">DAILYSTATIONERY</div>
+          <div class="rct-sub">TOKO ATK LENGKAP</div>
+          <div class="rct-addr">Jl. Kemang Raya No. 88, Jakarta Selatan 12730<br>Tel: +62 21-7890-1234 | hello@dailystationery.id</div>
+        </div>
+        <div class="rct-body" id="rct-body"></div>
+        <div class="rct-foot">
+          <div class="rct-bar" id="rct-bar">| | | | | | | | | | | | | | | | | | | |</div>
+          <div class="rct-thank">Terima kasih atas kepercayaanmu ♥</div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Simpan struk ini sebagai bukti pembelian</div>
+        </div>
+      </div>
+      <div class="suc-acts">
+        <button class="btn-sp" onclick="goProducts()">🛍️ Belanja Lagi</button>
+        <button class="btn-ss" onclick="goHome()">🏠 Ke Beranda</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /pg-success -->
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
