@@ -20,7 +20,7 @@ const PRODUCTS = [
   },
   {
     id: 3, name: 'Pilot G2 Pulpen Gel 0.5mm (6 pcs)', cat: 'Pulpen',
-    price: 72000, old: 80000, badge: 'best',
+    price: 12000, old: null, badge: 'best',
     img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80',
     desc: 'Tinta gel halus, grip karet, refillable. 6 warna: hitam, biru, merah, hijau, ungu, coklat.',
     dt: new Date('2025-10-05')
