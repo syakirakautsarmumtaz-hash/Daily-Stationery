@@ -1,15 +1,15 @@
 :root {
-  --cream: #F5F0E8;
+  --cream: #ebdfcc;
   --ink: #1A1208;
-  --brown: #8B5E3C;
+  --brown: #966641;
   --sage: #7C9070;
-  --rust: #C4622D;
-  --gold: #D4A843;
+  --rust: #a81b1bd7;
+  --gold: #ceaa55;
   --lc: #FAF7F2;
   --mc: #EDE8DE;
-  --muted: #6B5F52;
-  --sh: 0 4px 24px rgba(26, 18, 8, .12);
-  --shl: 0 12px 48px rgba(26, 18, 8, .18);
+  --muted: #583d1f;
+  --sh: 0 4px 24px rgba(141, 94, 37, 0.12);
+  --shl: 0 12px 48px rgba(49, 34, 15, 0.18);
 }
 
 * {

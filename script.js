@@ -133,12 +133,12 @@ const PRODUCTS = [
 ];
 
 const DELIVERIES = [
-  { id: 'jne-reg',  name: 'JNE Reguler',     icon: '📦', eta: '2–3 hari kerja', price: 18000 },
-  { id: 'jne-yes',  name: 'JNE YES',          icon: '⚡', eta: 'Besok sampai',   price: 35000 },
-  { id: 'jnt',      name: 'J&T Express',      icon: '🚚', eta: '1–3 hari kerja', price: 15000 },
-  { id: 'sicepat',  name: 'SiCepat Reguler',  icon: '🏃', eta: '1–2 hari kerja', price: 16000 },
-  { id: 'anteraja', name: 'Anteraja',          icon: '🐝', eta: '2–3 hari kerja', price: 14000 },
-  { id: 'gosend',   name: 'GoSend Same Day',  icon: '🛵', eta: 'Hari ini',       price: 25000 },
+  { id: 'jne-reg',  name: 'JNE Reguler',     icon: '📦', eta: '2–3 hari kerja', price: 7000 },
+  { id: 'jne-yes',  name: 'JNE YES',          icon: '⚡', eta: 'Besok sampai',   price: 5000 },
+  { id: 'jnt',      name: 'J&T Express',      icon: '🚚', eta: '1–3 hari kerja', price: 7500 },
+  { id: 'sicepat',  name: 'SiCepat Reguler',  icon: '🏃', eta: '1–2 hari kerja', price: 6000 },
+  { id: 'anteraja', name: 'Anteraja',          icon: '🐝', eta: '2–3 hari kerja', price: 7000 },
+  { id: 'gosend',   name: 'GoSend Same Day',  icon: '🛵', eta: 'Hari ini',       price: 15000 },
 ];
 
 const BANKS = {
